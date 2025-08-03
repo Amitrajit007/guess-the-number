@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-sky-300 flex flex-col h-lvh">
+    <!-- ! Navbar -->
+    <nav
+      class="navbar sm:w-full flex flex-wrap items-center bg-sky-400 p-2 justify-between"
+    >
+      <div>
+        <a
+          href="#"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          class="text-xl font-bold"
+          >Guess It</a
+        >
+      </div>
+      <div class="flex flex-wrap gap-3 sm:gap-8">
+        <p class="text-sm sm:text-xl">Home</p>
+        <p class="text-sm sm:text-xl">Service</p>
+        <p class="text-sm sm:text-xl">Help</p>
+        <p class="text-sm sm:text-xl">Contact</p>
+      </div>
+    </nav>
+
+    <main class="">
+      <!-- !input Area -->
+      <div class="w-full">
+        <div
+          class="flex w-full p-5 bg-transparent rounded-lg font-mono flex-col"
+        >
+          <div class="w-full flex justify-center">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="unique-input"
+            >
+              Guess the number</label
+            >
+          </div>
+          <div class="flex flex-wrap gap-2 justify-center items-center">
+            <input
+              class="js-input h-10 text-sm custom-input max-w-150 px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-0.5 focus:outline-blue-300 hover:shadow-lg hover:border-blue-400 bg-gray-100 grow"
+              placeholder="Enter here"
+              type="text"
+              id="unique-input"
+            />
+            <button
+              class="js-submitBtn overflow-x-clip cursor-pointer px-4 py-2 h-10 border-1 rounded-xl border-white active:scale-95 ease-in-out"
+            >
+              Try
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- ! Selection Area -->
+      <div class="flex w-full justify-center">
+        <div class="flex ml-1 sm:gap-2 flex-wrap">
+          <pre>Choose difficulty:</pre>
+          <div class="flex gap-2 flex-nowrap">
+            <label
+              title="0 to 100"
+              class="relative flex items-center cursor-pointer"
+            >
+              <input
+                checked=""
+                class="sr-only peer"
+                name="difficulty"
+                type="radio"
+                value="Hard"
+              />
+              <div
+                class="w-5 h-5 bg-transparent border-2 border-rose-400 rounded-full peer-checked:bg-rose-400 peer-checked:border-rose-400 peer-hover:shadow-lg peer-hover:shadow-rose-400/50 peer-checked:shadow-lg peer-checked:shadow-rose-400/50 transition duration-300 ease-in-out"
+              ></div>
+              <span class="ml-2 text-black">Hard</span>
+            </label>
+            <label
+              title="0 to 50"
+              class="relative flex items-center cursor-pointer"
+            >
+              <input
+                class="sr-only peer"
+                name="difficulty"
+                type="radio"
+                value="Normal"
+              />
+              <div
+                class="w-5 h-5 bg-transparent border-2 border-yellow-500 rounded-full peer-checked:bg-yellow-500 peer-checked:border-yellow-500 peer-hover:shadow-lg peer-hover:shadow-yellow-500/50 peer-checked:shadow-lg peer-checked:shadow-yellow-500/50 transition duration-300 ease-in-out"
+              ></div>
+              <span class="ml-2 text-black">Normal</span>
+            </label>
+            <label
+              title="0 to 10"
+              class="relative flex items-center cursor-pointer"
+            >
+              <input
+                class="sr-only peer"
+                name="difficulty"
+                type="radio"
+                value="Easy"
+              />
+              <div
+                class="w-5 h-5 bg-transparent border-2 border-green-500 rounded-full peer-checked:bg-green-500 peer-checked:border-green-500 peer-hover:shadow-lg peer-hover:shadow-green-500/50 peer-checked:shadow-lg peer-checked:shadow-green-500/50 transition duration-300 ease-in-out"
+              ></div>
+              <span class="ml-2 text-black">Easy</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- ! Describe -->
+      <div
+        class="hidden sm:flex font-mono flex-wrap gap-2 justify-center items-center mt-2 mb-4"
+      >
+        <p>Hard: 0 to 100,</p>
+        <p>Normal:0 to 50,</p>
+        <p>Easy:0 to 10</p>
+      </div>
+    </main>
+    <!-- ! Result Area -->
+    <div class="flex grow">
+      <div class="bg-sky-300 w-full"></div>
+    </div>
+    <!-- !footer -->
+    <footer class="w-full bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand Section -->
+        <div>
+          <h2 class="text-2xl font-bold mb-2">Pokédex</h2>
+          <p class="text-sm text-gray-400 mb-4">
+            Handheld electronic device in the Pokémon franchise.
+          </p>
+          <p class="text-sm text-gray-500">© 2025 All rights reserved.</p>
+          <p class="text-sm text-gray-500">Caution : Dummy only</p>
+          <p class="text-sm text-gray-500">Created by Amitrajit</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-white">Home</a></li>
+            <li><a href="#" class="hover:text-white">About Us</a></li>
+            <li><a href="#" class="hover:text-white">Blog</a></li>
+            <li><a href="#" class="hover:text-white">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Support</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-white">Contact</a></li>
+            <li><a href="#" class="hover:text-white">Help Center</a></li>
+            <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Socials -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Follow Us</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-white">Facebook</a></li>
+            <li><a href="#" class="hover:text-white">Twitter</a></li>
+            <li><a href="#" class="hover:text-white">Instagram</a></li>
+            <li><a href="#" class="hover:text-white">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
