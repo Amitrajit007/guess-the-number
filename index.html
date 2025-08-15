@@ -56,59 +56,67 @@
         </div>
       </div>
       <!-- ! Selection Area -->
-      <div class="flex w-full justify-center">
-        <div class="flex ml-1 sm:gap-2 flex-wrap">
-          <pre>Choose difficulty:</pre>
-          <div class="flex gap-2 flex-nowrap">
-            <label
-              title="0 to 100"
-              class="relative flex items-center cursor-pointer"
-            >
-              <input
-                checked=""
-                class="sr-only peer"
-                name="difficulty"
-                type="radio"
-                value="Hard"
-              />
-              <div
-                class="w-5 h-5 bg-transparent border-2 border-rose-400 rounded-full peer-checked:bg-rose-400 peer-checked:border-rose-400 peer-hover:shadow-lg peer-hover:shadow-rose-400/50 peer-checked:shadow-lg peer-checked:shadow-rose-400/50 transition duration-300 ease-in-out"
-              ></div>
-              <span class="ml-2 text-black">Hard</span>
-            </label>
-            <label
-              title="0 to 50"
-              class="relative flex items-center cursor-pointer"
-            >
-              <input
-                class="sr-only peer"
-                name="difficulty"
-                type="radio"
-                value="Normal"
-              />
-              <div
-                class="w-5 h-5 bg-transparent border-2 border-yellow-500 rounded-full peer-checked:bg-yellow-500 peer-checked:border-yellow-500 peer-hover:shadow-lg peer-hover:shadow-yellow-500/50 peer-checked:shadow-lg peer-checked:shadow-yellow-500/50 transition duration-300 ease-in-out"
-              ></div>
-              <span class="ml-2 text-black">Normal</span>
-            </label>
-            <label
-              title="0 to 10"
-              class="relative flex items-center cursor-pointer"
-            >
-              <input
-                class="sr-only peer"
-                name="difficulty"
-                type="radio"
-                value="Easy"
-              />
-              <div
-                class="w-5 h-5 bg-transparent border-2 border-green-500 rounded-full peer-checked:bg-green-500 peer-checked:border-green-500 peer-hover:shadow-lg peer-hover:shadow-green-500/50 peer-checked:shadow-lg peer-checked:shadow-green-500/50 transition duration-300 ease-in-out"
-              ></div>
-              <span class="ml-2 text-black">Easy</span>
-            </label>
+      <form id="myForm">
+        <div class="flex w-full justify-center items-center">
+          <div class="flex items-center ml-1 sm:gap-2 flex-wrap">
+            <pre>Choose difficulty:</pre>
+            <div class="flex items-center gap-2 flex-nowrap">
+              <label
+                title="0 to 100"
+                class="relative flex items-center cursor-pointer"
+              >
+                <input
+                  class="sr-only peer"
+                  name="difficulty"
+                  type="radio"
+                  value="Hard"
+                />
+                <div
+                  class="w-5 h-5 bg-transparent border-2 border-rose-400 rounded-full peer-checked:bg-rose-400 peer-checked:border-rose-400 peer-hover:shadow-lg peer-hover:shadow-rose-400/50 peer-checked:shadow-lg peer-checked:shadow-rose-400/50 transition duration-300 ease-in-out"
+                ></div>
+                <span class="ml-2 text-black">Hard</span>
+              </label>
+              <label
+                title="0 to 50"
+                class="relative flex items-center cursor-pointer"
+              >
+                <input
+                  class="sr-only peer"
+                  name="difficulty"
+                  type="radio"
+                  value="Normal"
+                />
+                <div
+                  class="w-5 h-5 bg-transparent border-2 border-yellow-500 rounded-full peer-checked:bg-yellow-500 peer-checked:border-yellow-500 peer-hover:shadow-lg peer-hover:shadow-yellow-500/50 peer-checked:shadow-lg peer-checked:shadow-yellow-500/50 transition duration-300 ease-in-out"
+                ></div>
+                <span class="ml-2 text-black">Normal</span>
+              </label>
+              <label
+                title="0 to 10"
+                class="relative flex items-center cursor-pointer"
+              >
+                <input
+                  checked=""
+                  class="sr-only peer"
+                  name="difficulty"
+                  type="radio"
+                  value="Easy"
+                />
+                <div
+                  class="w-5 h-5 bg-transparent border-2 border-green-500 rounded-full peer-checked:bg-green-500 peer-checked:border-green-500 peer-hover:shadow-lg peer-hover:shadow-green-500/50 peer-checked:shadow-lg peer-checked:shadow-green-500/50 transition duration-300 ease-in-out"
+                ></div>
+                <span class="ml-2 text-black">Easy</span>
+              </label>
+              <button
+                type="button"
+                class="px-4 py-2 bg-stone-400 text-black rounded active:scale-95 active:bg-stone-500 hover:scale-102 transition-all duration-150 ease-in-out"
+              >
+                Start
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
       <!-- ! Describe -->
       <div
         class="hidden sm:flex font-mono flex-wrap gap-2 justify-center items-center mt-2 mb-4"
@@ -157,10 +165,10 @@
         </div>
         <!--?🖼️ Images and Popups -->
         <div
-          class="closePopup fixed inset-0 bg-black/30 backdrop-blur-md flex justify-center items-center z-999"
+          class="closePopup fixed inset-0 bg-gray-600/30 backdrop-blur-md justify-center items-center z-999 hidden"
         >
           <div
-            class="relative bg-white w-80 max-w-md h-1/2 p-6 border-2 rounded-lg"
+            class="relative bg-white w-80 max-w-md h-auto p-6 border-2 rounded-lg"
           >
             <button
               class="closebtn absolute bg-red -300 px-4 py-1 rounded-xl top-3 right-1"
@@ -169,7 +177,8 @@
               ❌
             </button>
             <img src="./public/images/Correct.png" alt="" />
-            <p class="align-middle">Thanks for Playing the game.</p>
+            <p class="text-center font-mono">You Guessed It</p>
+            <p class="text-center font-mono">Thanks for Playing the game.</p>
           </div>
         </div>
       </div>
@@ -222,5 +231,6 @@
         </div>
       </div>
     </footer>
+    <script src="./src/main.js"></script>
   </body>
 </html>
