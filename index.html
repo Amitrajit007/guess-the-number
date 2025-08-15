@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./src/style.css" rel="stylesheet" />
   </head>
-  <body class="bg-sky-300 flex flex-col h-lvh">
+  <body class="bg-slate-300 flex flex-col h-lvh">
     <!-- ! Navbar -->
     <nav
-      class="navbar sm:w-full flex flex-wrap items-center bg-sky-400 p-2 justify-between"
+      class="navbar sm:w-full flex flex-wrap items-center bg-slate-400 p-2 justify-between"
     >
       <div>
         <a
@@ -119,8 +119,42 @@
       </div>
     </main>
     <!-- ! Result Area -->
-    <div class="flex grow">
-      <div class="bg-sky-300 w-full"></div>
+    <!-- ⚠️ Warning may breake the layout   -->
+    <div class="flex grow min-h-100">
+      <div class="bg-slate-300 w-full flex flex-col items-center gap-4">
+        <!-- ? Progress Bar -->
+        <div class="progressBar w-2/3 sm:w-1/3 mt-10">
+          <div
+            class="relative w-full h-6 bg-white rounded-full overflow-hidden shadow-inner"
+          >
+            <!-- Gradient fill -->
+            <div
+              class="absolute top-0 left-0 h-6 bg-gradient-to-r from-red-500 via-yellow-200 to-green-500 transition-all duration-500"
+              style="width: 70%"
+            ></div>
+            <!-- Percentage text -->
+            <span
+              class="absolute w-full text-center text-black font-semibold top-0.5"
+              >70%</span
+            >
+          </div>
+        </div>
+        <!-- Remaining attemps and others-->
+        <div
+          class="mainDisplayArea mt-10 relative border-2 w-9/10 h-auto bg-stone-500/30 rounded-2xl flex flex-col items-center"
+        >
+          <span class="p-3 font-semibold font-mono"> Remaining Ateemps: 8</span>
+          <span class="p-2 font-semibold font-mono text-xl">
+            you're close/Not so close/Bruh/Almost/Got it
+          </span>
+          <span class="p-2 font-semibold font-mono">
+            Try out different difficulties
+          </span>
+          <!-- ?🧨 Should I add some Thank u or what ?
+            -->
+        </div>
+        <!--?🖼️ Images and Popups -->
+      </div>
     </div>
     <!-- !footer -->
     <footer class="w-full bg-gray-900 text-white py-12">
