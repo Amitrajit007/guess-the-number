@@ -8,6 +8,7 @@ const difficultyLevel = document.querySelector("#myForm");
 const Input = document.querySelector(".js-input");
 const TrySubmit = document.querySelector(".js-submitBtn");
 const renderArea = document.querySelector(".heroSection");
+let bar;
 // let popupClose;
 // * 🌍The Global Vars
 let difficulty;
@@ -52,6 +53,10 @@ TrySubmit.addEventListener("click", () => {
   CLICK_COUNT++;
   if (CLICK_COUNT <= TOTAL_TRY) {
     let Guess = Number(Input.value);
+    if (isNaN(Guess)) {
+      alert("Are u drunk ?!!");
+      return;
+    }
     Input.value = "";
     let difference = Math.abs(RandomValue - Guess);
     conclusion = GetResult(difficulty, difference, WIN_FLAG);
@@ -59,10 +64,11 @@ TrySubmit.addEventListener("click", () => {
   }
 
   updateDisplay(conclusion.msg, conclusion.percent);
+
   remaininTry--;
   const popup = document.querySelector(".closePopup");
   const popupClose = document.querySelector(".closebtn");
-
+  bar = document.querySelector(".progressBar");
   if (CLICK_COUNT === TOTAL_TRY) {
     TrySubmit.disabled = true;
     TrySubmit.classList.add("opacity-50", "cursor-not-allowed");
@@ -87,7 +93,7 @@ TrySubmit.addEventListener("click", () => {
     TrySubmit.disabled = false;
     TrySubmit.classList.toggle("opacity-50", "cursor-not-allowed");
     renderArea.innerHTML = "";
-    document.querySelector(".footer").classList.add("fixed");
+    // document.querySelector(".footer").classList.add("fixed");
     //* flags changed to original pos.
     SELECTED_DIFICULTY = false;
     TOTAL_TRY = 6;
@@ -95,9 +101,21 @@ TrySubmit.addEventListener("click", () => {
     WIN_FLAG = false;
   }
 });
+function updateProgressColor(percent) {
+  bar.style.backgroundColor = "";
+
+  // Change color based on percentage
+  if (percent < 30) {
+    bar.style.backgroundColor = "red";
+  } else if (percent < 70) {
+    bar.style.backgroundColor = "orange";
+  } else {
+    bar.style.backgroundColor = "green";
+  }
+}
 
 function updateDisplay(A, B) {
-  document.querySelector(".footer").classList.remove("fixed");
+  // document.querySelector(".footer").classList.remove("fixed");
   let renderHTML = `
   <!-- ! this what i have to render using the js -->
 <div class="bg-slate-300 w-full h-auto flex flex-col items-center gap-4 mb-5">
@@ -108,12 +126,12 @@ function updateDisplay(A, B) {
     >
       <!-- Gradient fill -->
       <div
-        class="absolute top-0 left-0 h-6 bg-gradient-to-r from-red-500 via-yellow-200 to-green-500 transition-all duration-500"
+        class="progressBar absolute top-0 left-0 h-6 bg-gradient-to-r from-red-500 via-yellow-200 to-green-500 transition-all duration-500"
         style="width: ${100 - B}%"
       ></div>
       <!-- Percentage text -->
       <span class="absolute w-full text-center text-black font-semibold top-0.5"
-        >${100 - B}%</span
+        >${(100 - B).toFixed(0)}%</span
       >
     </div>
   </div>
@@ -152,4 +170,5 @@ function updateDisplay(A, B) {
   
   `;
   renderArea.innerHTML = renderHTML;
+  updateProgressColor(100 - B);
 }
