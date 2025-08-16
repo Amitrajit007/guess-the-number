@@ -128,63 +128,9 @@
     </main>
     <!-- ! Result Area -->
     <!-- ⚠️ Warning may brake the layout   :-; -->
-    <div class="flex grow min-h-100">
-      <div
-        class="bg-slate-300 w-full h-auto flex flex-col items-center gap-4 mb-5"
-      >
-        <!-- ? Progress Bar -->
-        <div class="progressBar w-2/3 sm:w-1/3 mt-10">
-          <div
-            class="relative w-full h-6 bg-white rounded-full overflow-hidden shadow-inner"
-          >
-            <!-- Gradient fill -->
-            <div
-              class="absolute top-0 left-0 h-6 bg-gradient-to-r from-red-500 via-yellow-200 to-green-500 transition-all duration-500"
-              style="width: 70%"
-            ></div>
-            <!-- Percentage text -->
-            <span
-              class="absolute w-full text-center text-black font-semibold top-0.5"
-              >70%</span
-            >
-          </div>
-        </div>
-        <!-- Remaining attemps and others-->
-        <div
-          class="mainDisplayArea mt-10 relative border-2 w-9/10 h-auto bg-stone-500/30 rounded-2xl flex flex-col items-center"
-        >
-          <span class="p-3 font-semibold font-mono"> Remaining Ateemps: 8</span>
-          <span class="p-2 font-semibold font-mono text-xl">
-            you're close/Not so close/Bruh/Almost/Got it
-          </span>
-          <span class="p-2 font-semibold font-mono">
-            Try out different difficulties
-          </span>
-          <!-- ?🧨 Should I add some Thank u or what ?
-            -->
-        </div>
-        <!--?🖼️ Images and Popups -->
-        <div
-          class="closePopup fixed inset-0 bg-gray-600/30 backdrop-blur-md justify-center items-center z-999 hidden"
-        >
-          <div
-            class="relative bg-white w-80 max-w-md h-auto p-6 border-2 rounded-lg"
-          >
-            <button
-              class="closebtn absolute bg-red -300 px-4 py-1 rounded-xl top-3 right-1"
-              onclick="document.querySelector('.closePopup').classList.add('hidden')"
-            >
-              ❌
-            </button>
-            <img src="./public/images/Correct.png" alt="" />
-            <p class="text-center font-mono">You Guessed It</p>
-            <p class="text-center font-mono">Thanks for Playing the game.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="heroSection flex grow h-auto"></div>
     <!-- !footer -->
-    <footer class="w-full bg-gray-900 text-white py-12">
+    <footer class="footer w-full fixed bottom-0 bg-gray-900 text-white py-12">
       <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Brand Section -->
         <div>
@@ -231,6 +177,6 @@
         </div>
       </div>
     </footer>
-    <script src="./src/main.js"></script>
+    <script type="module" src="./src/main.js" defer></script>
   </body>
 </html>
