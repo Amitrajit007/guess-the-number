@@ -79,7 +79,7 @@ TrySubmit.addEventListener("click", () => {
     TrySubmit.disabled = true;
     TrySubmit.classList.add("opacity-50", "cursor-not-allowed");
     // console.log(WIN_FLAG);
-    popup.querySelector("img").src = `./public/images/${
+    popup.querySelector("img").src = `/images/${
       WIN_FLAG ? `Correct.png` : `tryAgain.webp`
     }`;
     popup.querySelector("p").innerText = `${
@@ -95,7 +95,7 @@ TrySubmit.addEventListener("click", () => {
     TrySubmit.disabled = true;
     TrySubmit.classList.toggle("opacity-50", "cursor-not-allowed");
     // console.log(WIN_FLAG);
-    popup.querySelector("img").src = `./public/images/${
+    popup.querySelector("img").src = `/images/${
       WIN_FLAG ? `Correct.png` : `tryAgain.webp`
     }`;
     popup.querySelector("p").innerText = `${
