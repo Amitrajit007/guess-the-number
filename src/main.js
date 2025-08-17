@@ -69,7 +69,12 @@ TrySubmit.addEventListener("click", () => {
     WIN_FLAG = conclusion.flag;
   }
 
-  updateDisplay(conclusion.msg, conclusion.percentAbsolute, GuessCopy);
+  updateDisplay(
+    conclusion.msg,
+    conclusion.percentAbsolute,
+    GuessCopy,
+    RandomValue
+  );
 
   remaininTry--;
   const popup = document.querySelector(".closePopup");
@@ -132,7 +137,7 @@ function updateProgressColor(percent, bar) {
   }
 }
 
-function updateDisplay(A, B, Guess) {
+function updateDisplay(A, B, Guess, RandomValue) {
   let renderHTML = `
   <!-- ! this what i have to render using the js -->
 <div class="bg-slate-300 w-full h-auto flex flex-col items-center gap-4 mb-5">
@@ -179,6 +184,7 @@ function updateDisplay(A, B, Guess) {
       </button>
       <img src="./public/images/Correct.png" alt="Ref. Image" />
       <p class="text-center font-mono">You Guessed It</p>
+      <p class="text-center font-mono">The Number Was :${RandomValue}</p>
       <p class="text-center font-mono">Last Guess :${Guess}</p>
     </div>
   </div>
