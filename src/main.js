@@ -73,6 +73,9 @@ TrySubmit.addEventListener("click", () => {
     TrySubmit.disabled = true;
     TrySubmit.classList.add("opacity-50", "cursor-not-allowed");
     console.log(WIN_FLAG);
+    popup.querySelector("img").src = `./public/images/${
+      WIN_FLAG ? `correct.png` : `tryAgain.webp`
+    }`;
     popup.classList.toggle("hidden");
     popupClose.onclick = () => {
       crossFunctionalities();
@@ -83,6 +86,9 @@ TrySubmit.addEventListener("click", () => {
     TrySubmit.disabled = true;
     TrySubmit.classList.toggle("opacity-50", "cursor-not-allowed");
     console.log(WIN_FLAG);
+    popup.querySelector("img").src = `./public/images/${
+      WIN_FLAG ? `correct.png` : `tryAgain.webp`
+    }`;
     popup.classList.toggle("hidden");
     popupClose.onclick = () => {
       crossFunctionalities();
@@ -101,7 +107,7 @@ TrySubmit.addEventListener("click", () => {
     WIN_FLAG = false;
   }
 });
-function updateProgressColor(percent) {
+function updateProgressColor(percent, bar) {
   bar.style.backgroundColor = "";
 
   // Change color based on percentage
@@ -120,13 +126,13 @@ function updateDisplay(A, B) {
   <!-- ! this what i have to render using the js -->
 <div class="bg-slate-300 w-full h-auto flex flex-col items-center gap-4 mb-5">
   <!-- ? Progress Bar -->
-  <div class="progressBar w-2/3 sm:w-1/3 mt-10">
+  <div class=" w-2/3 sm:w-1/3 mt-10">
     <div
       class="relative w-full h-6 bg-white rounded-full overflow-hidden shadow-inner"
     >
       <!-- Gradient fill -->
       <div
-        class="progressBar absolute top-0 left-0 h-6 bg-gradient-to-r from-red-500 via-yellow-200 to-green-500 transition-all duration-500"
+        class="progressBar absolute top-0 left-0 h-6  transition-all duration-500"
         style="width: ${100 - B}%"
       ></div>
       <!-- Percentage text -->
@@ -170,5 +176,6 @@ function updateDisplay(A, B) {
   
   `;
   renderArea.innerHTML = renderHTML;
-  updateProgressColor(100 - B);
+  const bar = document.querySelector(".progressBar");
+  updateProgressColor(100 - B, bar);
 }
