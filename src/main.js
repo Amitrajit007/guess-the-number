@@ -54,7 +54,11 @@ TrySubmit.addEventListener("click", () => {
   if (CLICK_COUNT <= TOTAL_TRY) {
     let Guess = Number(Input.value);
     if (isNaN(Guess)) {
+      Input.classList.add("Error");
       alert("Are u drunk ?!!");
+      setTimeout(() => {
+        Input.classList.remove("Error");
+      }, 3 * 1000);
       return;
     }
     Input.value = "";
@@ -76,6 +80,9 @@ TrySubmit.addEventListener("click", () => {
     popup.querySelector("img").src = `./public/images/${
       WIN_FLAG ? `correct.png` : `tryAgain.webp`
     }`;
+    popup.querySelector("p").innerText = `${
+      WIN_FLAG ? `You Guessed It 😊` : `Better Luck Next Time 🥺`
+    }`;
     popup.classList.toggle("hidden");
     popupClose.onclick = () => {
       crossFunctionalities();
@@ -88,6 +95,9 @@ TrySubmit.addEventListener("click", () => {
     console.log(WIN_FLAG);
     popup.querySelector("img").src = `./public/images/${
       WIN_FLAG ? `correct.png` : `tryAgain.webp`
+    }`;
+    popup.querySelector("p").innerText = `${
+      WIN_FLAG ? `You Guessed It 😊` : `Better Luck Next Time 🥺`
     }`;
     popup.classList.toggle("hidden");
     popupClose.onclick = () => {
@@ -166,7 +176,7 @@ function updateDisplay(A, B) {
       >
         ❌
       </button>
-      <img src="./public/images/Correct.png" alt="" />
+      <img src="./public/images/Correct.png" alt="Ref. Image" />
       <p class="text-center font-mono">You Guessed It</p>
       <p class="text-center font-mono">Thanks for Playing the game.</p>
     </div>

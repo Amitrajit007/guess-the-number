@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+.Error {
+  border: 1px solid red;
+  animation: blink 3s ease-in infinite;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    border-color: red;
+  }
+  25%,
+  75% {
+    border-color: transparent;
+  }
+}
