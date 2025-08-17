@@ -14,6 +14,7 @@ let bar;
 let difficulty;
 let RandomValue;
 let remaininTry;
+let GuessCopy;
 // * 🏳️The Global flags
 let SELECTED_DIFICULTY = false;
 let TOTAL_TRY = 6;
@@ -37,7 +38,7 @@ startBtn.addEventListener("click", () => {
 
     SELECTED_DIFICULTY = true;
     RandomValue = generateRandom(difficulty);
-    console.log(`Difficulty: ${difficulty}, Random Value: ${RandomValue}`);
+    // console.log(`Difficulty: ${difficulty}, Random Value: ${RandomValue}`);
     remaininTry = TOTAL_TRY - 1;
   } else {
     alert(`You Already selected a level: ${difficulty}`);
@@ -53,6 +54,7 @@ TrySubmit.addEventListener("click", () => {
   CLICK_COUNT++;
   if (CLICK_COUNT <= TOTAL_TRY) {
     let Guess = Number(Input.value);
+    GuessCopy = Guess;
     if (isNaN(Guess)) {
       Input.classList.add("Error");
       alert("Are u drunk ?!!");
@@ -67,7 +69,7 @@ TrySubmit.addEventListener("click", () => {
     WIN_FLAG = conclusion.flag;
   }
 
-  updateDisplay(conclusion.msg, conclusion.percent);
+  updateDisplay(conclusion.msg, conclusion.percentAbsolute, GuessCopy);
 
   remaininTry--;
   const popup = document.querySelector(".closePopup");
@@ -76,9 +78,9 @@ TrySubmit.addEventListener("click", () => {
   if (CLICK_COUNT === TOTAL_TRY) {
     TrySubmit.disabled = true;
     TrySubmit.classList.add("opacity-50", "cursor-not-allowed");
-    console.log(WIN_FLAG);
+    // console.log(WIN_FLAG);
     popup.querySelector("img").src = `./public/images/${
-      WIN_FLAG ? `correct.png` : `tryAgain.webp`
+      WIN_FLAG ? `Correct.png` : `tryAgain.webp`
     }`;
     popup.querySelector("p").innerText = `${
       WIN_FLAG ? `You Guessed It 😊` : `Better Luck Next Time 🥺`
@@ -92,9 +94,9 @@ TrySubmit.addEventListener("click", () => {
   if (WIN_FLAG === true) {
     TrySubmit.disabled = true;
     TrySubmit.classList.toggle("opacity-50", "cursor-not-allowed");
-    console.log(WIN_FLAG);
+    // console.log(WIN_FLAG);
     popup.querySelector("img").src = `./public/images/${
-      WIN_FLAG ? `correct.png` : `tryAgain.webp`
+      WIN_FLAG ? `Correct.png` : `tryAgain.webp`
     }`;
     popup.querySelector("p").innerText = `${
       WIN_FLAG ? `You Guessed It 😊` : `Better Luck Next Time 🥺`
@@ -130,8 +132,7 @@ function updateProgressColor(percent, bar) {
   }
 }
 
-function updateDisplay(A, B) {
-  // document.querySelector(".footer").classList.remove("fixed");
+function updateDisplay(A, B, Guess) {
   let renderHTML = `
   <!-- ! this what i have to render using the js -->
 <div class="bg-slate-300 w-full h-auto flex flex-col items-center gap-4 mb-5">
@@ -160,7 +161,7 @@ function updateDisplay(A, B) {
       ${A}
     </span>
     <span class="p-2 font-semibold font-mono">
-      Try out different difficulties
+      Last Guess :${Guess}
     </span>
     <!-- ?🧨 Should I add some Thank u or what ?
             -->
@@ -178,7 +179,7 @@ function updateDisplay(A, B) {
       </button>
       <img src="./public/images/Correct.png" alt="Ref. Image" />
       <p class="text-center font-mono">You Guessed It</p>
-      <p class="text-center font-mono">Thanks for Playing the game.</p>
+      <p class="text-center font-mono">Last Guess :${Guess}</p>
     </div>
   </div>
 </div>
